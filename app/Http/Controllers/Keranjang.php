@@ -4,10 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\KecamatanModel;
 use App\Models\KeranjangModel;
-<<<<<<< HEAD
-use App\Models\KecamatanModel;
-=======
->>>>>>> 022bf93e41bb50b259066187272d49a589adb951
 use App\Models\KotaModel;
 use App\Models\ProvinsiModel;
 use Illuminate\Http\Request;
@@ -112,46 +108,6 @@ class Keranjang extends Controller
         return json_encode($data);
     }
 
-<<<<<<< HEAD
-
-    public function get_prov()
- {
- $list = ProvinsiModel::select('id', 'name')
- ->orderBy('name','ASC')
- ->get();
- $html_select = '<option value ="">-- Pilih Salah Satu --</option>';
- foreach ($list as $key => $value) {
- $html_select .= '<option value = "'.$value->id.'||'.$value->name.'">'.
-$value->name.'</option>';
- }
- return $html_select;
- }
-
- public function get_kota($kode)
- {
- $list = KotaModel::select('id', 'name')
- ->where('province_id', $kode)
- ->orderBy('name','ASC')
- ->get();
- $html_select = '<option value ="">-- Pilih Salah Satu --</option>';
- foreach ($list as $key => $value) {
- $html_select .= '<option value = "'.$value->id.'||'.$value->name.'">'.
-$value->name.'</option>';
- }
- return $html_select;
- }
-
- public function get_kec($kode)
- {
-    $list = KecamatanModel::select('id', 'name')->where('regency_id', $kode)->orderBy('name', 'ASC')->get();
-    $html_select = '<option value ="">-- Pilih Salah Satu --</option>';
-    foreach ($list as $key => $value){
-        $html_select .= '<option value = "'.$value->id.' || '.$value->name.'">'.$value->name.' </option>';
-    }
-    return $html_select;
- }
-
-=======
     public function get_prov()
     {
 
@@ -196,5 +152,4 @@ $value->name.'</option>';
 
         return $html_select;
     }
->>>>>>> 022bf93e41bb50b259066187272d49a589adb951
 }

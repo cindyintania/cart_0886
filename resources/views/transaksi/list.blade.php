@@ -9,11 +9,31 @@ List Produk
 <form>
     <div class="row">
         <div class="col">
+<<<<<<< HEAD
             <label>Masukkan Batas Maksimal Stok</label>
             <input class="form-control" type="text" name="cari" id="cari">
         </div>
         <div class="col">
             <input type="submit" value="Cari Produk" class="btn btn-primary" style="margin-top:33px" id="">
+=======
+            <label>Tanggal Awal</label>
+            <input class="form-control" type="date" name="tgl_awal" id="tgl_awal">
+        </div>
+        <div class="col">
+            <label>Tanggal Akhir</label>
+            <input class="form-control" type="date" name="tgl_akhir" id="tgl_akhir">
+        </div>
+        <div class="col">
+            <label>Provinsi</label>
+            <input class="form-control" type="text" name="prov" id="prov">
+        </div>
+        <div class="col">
+            <label>Min. Nominal</label>
+            <input class="form-control" type="number" name="min_total" id="min_total">
+        </div>
+        <div class="col">
+            <input type="submit" value="Cari" class="btn btn-primary" style="margin-top:33px" id="">
+>>>>>>> 022bf93e41bb50b259066187272d49a589adb951
         </div>
     </div>
 </form>
@@ -134,7 +154,14 @@ List Produk
 		"ajax": {
 			url: url,
 			data: function (d) {
+<<<<<<< HEAD
                 d.stok = $("#cari").val();
+=======
+                d.tgl_awal = $("#tgl_awal").val();
+                d.tgl_akhir = $("#tgl_akhir").val();
+                d.prov = $("#prov").val();
+                d.min_total = $("#min_total").val();
+>>>>>>> 022bf93e41bb50b259066187272d49a589adb951
        		}
 		},
 

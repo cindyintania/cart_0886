@@ -28,42 +28,6 @@ class Transaksi extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-<<<<<<< HEAD
- {
- //
- $data = KeranjangModel::leftJoin('produk', 'produk.id_produk', '=', 'keranjang.id_produk')
- ->selectRaw('sum(produk.harga * keranjang.jumlah_beli) as total')
- ->first();
- $kecamatan = explode('||', $request->get('kecamatan'));
- $provinsi = explode('||', $request->get('provinsi'));
- $kota = explode('||', $request->get('kota'));
- $trans = new TransaksiModel([
- 'tgl_transaksi' => date("Y-m-d H:i:s"),
- 'total_bayar' => $data->total,
- 'nama' => $request->get('nama'),
- 'alamat_jalan' => $request->get('alamat_jalan'),
- 'kecamatan' => $kecamatan[1],
- 'kota' => $kota[1],
- 'provinsi' => $provinsi[1],
- 'id_user' => 1
- ]);
- $saved = $trans->save();
- $all_detail = KeranjangModel::leftJoin('produk', 'produk.id_produk', '=', 'keranjang.id_produk')
- ->select('keranjang.*', 'produk.nama_produk', 'produk.harga')
- ->get();
- foreach($all_detail as $value) {
- $detail = new DetailTransaksiModel([
- 'id_transaksi' => $trans->id_transaksi,
- 'id_produk' => $value->id_produk,
- 'harga' => $value->harga,
- 'jumlah_beli' => $value->jumlah_beli
- ]);
- $save_detail = $detail->save();
- }
- $keranjang = KeranjangModel::where('id_user', 1)->delete();
- return redirect(url('transaksi'));
- }
-=======
     {
         //
         $data = KeranjangModel::leftJoin('produk', 'produk.id_produk', '=', 'keranjang.id_produk')
@@ -106,7 +70,6 @@ class Transaksi extends Controller
 
         return redirect(url('transaksi'));
     }
->>>>>>> 022bf93e41bb50b259066187272d49a589adb951
 
     /**
      * Display the specified resource.

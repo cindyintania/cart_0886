@@ -71,7 +71,7 @@ class User extends Controller
  }
  public function loginProcess(Request $request)
  {
- $credentials = $request->only('???', '???');
+ $credentials = $request->only('username', 'password');
  $user = UserModel::where('username', $credentials['username'])
  ->where('password', sha1($credentials['password']))
  ->first();
@@ -84,6 +84,17 @@ class User extends Controller
  // Authentication passed
  Auth::login($user);
  $request->session()->regenerate();
+session(['nama' => $user->nama]);
+session(['id_user' => $user->id_user]);
+
  return redirect()->intended('/transaksi');
+ }
+
+ public function logout(Request $request)
+ {
+ Auth::guard('auth_user')->logout();
+ $request->session()->invalidate();
+ $request->session()->regenerateToken();
+ return redirect('/');
  }
 }

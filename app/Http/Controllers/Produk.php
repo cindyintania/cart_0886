@@ -311,10 +311,6 @@ class Produk extends Controller
 
             $harga = 'Rp '.number_format($value->harga);
             $image = '<img src="foto_produk/'.$value->foto_produk.'" width=150>';
-<<<<<<< HEAD
-=======
-
->>>>>>> f0249ec5715da5ac9281bb42bdfcefad3cf5ddde
             $row_data = [];
             $row_data[] = $key+1;
             $row_data[] = $value->kode_produk;
@@ -338,7 +334,7 @@ class Produk extends Controller
         return json_encode($data_json);
     }
 
-    public function store_no_api(Request $request)
+    public function store_no_api2(Request $request)
  {
  // untuk upload file
  $request->validate([

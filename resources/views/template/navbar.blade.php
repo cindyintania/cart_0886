@@ -21,7 +21,9 @@
 		<!-- Sidebar Menu -->
 		<nav class="mt-2">
 			<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-				<li class="nav-item">
+			@if(session()->has('id_user'))
+
+			<li class="nav-item">
 					<a href="{{ url('produk') }}" class="nav-link">
 						<i class="fas fa-circle nav-icon"></i>
 						<p>List Barang</p>
@@ -52,14 +54,27 @@
 					</a>
 				</li>
 				<li class="nav-item">
+ <a href="{{ url('logout') }}" class="nav-link">
+ <i class="fas fa-circle nav-icon"></i>
+ <p>Logout</p>
+ </a>
+ </li>
+
+				@endif
+
+				@if(!session()->has('id_user'))
+				<li class="nav-item">
 					<a href="{{ url('login') }}" class="nav-link">
 						<i class="fas fa-circle nav-icon"></i>
 						<p>Login</p>
 					</a>
 				</li>
+			@endif
 			</ul>
 		</nav>
 		<!-- /.sidebar-menu -->
 	</div>
 	<!-- /.sidebar -->
+
+
 </aside>

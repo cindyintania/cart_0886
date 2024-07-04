@@ -63,65 +63,6 @@ onchange="ambil_kecamatan()">
 function ambil_prov() {
     var link = '{{ url("api/provinsi") }}';
 
-<<<<<<< HEAD
-<script>
-function ambil_prov() {
- var link = '{{ url("api/provinsi") }}';
- $.ajax(link, {
- type: 'GET',
- success : function (data, status, xhr) {
- $('#provinsi').html(data);
- },
- error : function (jqXHR, textStatus, errorMsg) {
- alert('Error Pengambilan Data Provinsi : ' + errorMsg);
- }
- })
-}
-ambil_prov();
-function ambil_kota() {
- var prov = $('#provinsi').val().split("||");
- var link = '{{ url("api/kota/") }}' + '/' + prov[0];
- function ambil_kota(){
-	var prov = $('#provinsi').val().split("||");
-	var link = '{{ url("api/kota/") }}' + '/' + prov[0];
-
-	$.ajax(link, {
-		type: 'GET',
-		succes : function (data, status, xhr){
-			$('#kota').html(data);
-		},
-		error : function (jqXHR, textStatus, errorMsg){
-			alert('Error Pengambilan Data Kota: ' + errorMsg);
-		}
-	}
-
-	)
- }
-
- function ambil_kecamatan() {
-	var kota = $('#kota').val().split("||");
-	var link = '{{ url("api/kecamatan/")}}' + '/' + kota[0];
-	$.ajax(link, {
-		type: 'GET',
-		succes : function (data, status, xhr){
-			$('#kecamatan').html(data);
-		},
-		error :function (jqXHR, textStatus, errorMsg){
-			alert('Error Pengambilan Data Kecamatan :' +errorMsg);
-		}
-	}
-
-	)
- }
-}
-function ambil_kecamatan() {
- var kota = $('#kota').val().split("||");
- var link = '{{ url("api/kecamatan/") }}' + '/' + kota[0];
- ???
-}
-</script>
-
-=======
     $.ajax(link, {
         type: 'GET',
         success : function (data, status, xhr) {
@@ -166,5 +107,4 @@ function ambil_kecamatan() {
     })
 }
 </script>
->>>>>>> 022bf93e41bb50b259066187272d49a589adb951
 @endsection

@@ -5,8 +5,39 @@
 @endsection
 
 @section('konten')
+<<<<<<< HEAD
 <form id="formData" enctype="multipart/form-data" method="POST" action="{{ url('produk') }}">
  @csrf
+=======
+
+<style type="text/css">
+    .upload-area {
+      width: 70%;
+      height: 150px;
+      border: 2px solid lightgray;
+      border-radius: 3px;
+      margin: 0 auto;
+      text-align: center;
+      overflow: auto;
+    }
+    .upload-area:hover {
+      cursor: pointer;
+    }
+    .upload-area h2 {
+      text-align: center;
+      font-weight: normal;
+      font-family: sans-serif;
+      line-height: 50px;
+      color: gray;
+    }
+    #file {
+      display: none;
+    }
+</style>
+
+<form id="formData"  enctype="multipart/form-data" method="POST" action="{{ url('produk') }}">
+    @csrf
+>>>>>>> f0249ec5715da5ac9281bb42bdfcefad3cf5ddde
 	<table>
 		<tr>
 			<td>Kode Produk</td>
@@ -41,6 +72,7 @@
 		<tr>
 			<td>Foto Produk</td>
 			<td>
+<<<<<<< HEAD
  <div class="row" id="dropPhoto">
  <div class="col upload-area">
  <input type="file" class="form-user-input" name="file" id="file">
@@ -48,6 +80,15 @@
  </div>
  </div>
 </td>
+=======
+                <div class="row" id="dropPhoto">
+                    <div class="col upload-area">
+                      <input type="file" class="form-user-input" name="file" id="file">
+                      <h2>Jatuhkan Foto Disini</h2>
+                    </div>
+                </div>
+			</td>
+>>>>>>> f0249ec5715da5ac9281bb42bdfcefad3cf5ddde
 		</tr>
 		<tr>
 			<td colspan="3">
@@ -87,10 +128,17 @@
 <script>
     $(document).ready(function(){
 
+<<<<<<< HEAD
        //$('#formData').on('submit', function (e) {
             //e.preventDefault();
             //sendData();
         //})
+=======
+        // $('#formData').on('submit', function (e) {
+        //     e.preventDefault();
+        //     sendData();
+        // })
+>>>>>>> f0249ec5715da5ac9281bb42bdfcefad3cf5ddde
 
         function sendData() {
             var url_post = '{{ url("api/produk/input") }}';
@@ -105,6 +153,10 @@
             $.ajax(url_post, {
                 type: 'POST',
                 data: dataForm,
+                contentType: 'multipart/form-data',
+                cache: false,
+                contentType: false,
+                processData: false,
                 success: function (data, status, xhr) {
                     var data_str = JSON.parse(data);
 
@@ -118,6 +170,7 @@
     })
 </script>
 
+<<<<<<< HEAD
 <script type="text/javascript">
 $("html").on("drop", function (e) {
 e.preventDefault();
@@ -155,4 +208,54 @@ console.log(file);
 $(".upload-area > h2").text("File yang dipilih : " + file.name);
 });
 </script>
+=======
+
+<script type="text/javascript">
+	$("html").on("drop", function (e) {
+		e.preventDefault();
+		e.stopPropagation();
+	});
+
+	$("html").on("dragover", function (e) {
+		e.preventDefault();
+		e.stopPropagation();
+		$(".upload-area > h2").text("Arahkan Kesini");
+	});
+
+	$(".upload-area").on("dragenter", function (e) {
+		e.preventDefault();
+		e.stopPropagation();
+		$(".upload-area > h2").text("Jatuhkan File !!");
+	});
+
+	$(".upload-area").on("dragover", function (e) {
+		e.preventDefault();
+		e.stopPropagation();
+		$(".upload-area > h2").text("Jatuhkan File !!");
+	});
+
+	$(".upload-area").on("drop", function (e) {
+		e.preventDefault();
+		e.stopPropagation();
+
+		var file = e.originalEvent.dataTransfer.files;
+		console.log(file);
+
+		$("#file")[0].files = file;
+		$(".upload-area > h2").text("File yang dipilih : " + file[0].name);
+	});
+
+	$(".upload-area > h2").on("click", function (e) {
+		$("#file").click();
+	});
+
+	$("#file").on("change", function (e) {
+		var file = $("#file")[0].files[0];
+		console.log(file);
+
+		$(".upload-area > h2").text("File yang dipilih : " + file.name);
+	});
+</script>
+
+>>>>>>> f0249ec5715da5ac9281bb42bdfcefad3cf5ddde
 @endsection
